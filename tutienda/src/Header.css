@@ -1,15 +1,29 @@
 .menu{
     display: flex;
-    height: 70px;
-    background-color: rgb(53, 50, 50);
-    color: white;
+    flex-wrap: nowrap;
+    height: 60px;
+    background-color: rgb(29, 28, 28);
+   
     align-items: center;
     justify-content: space-between;
-    padding-left: 25px;
+    padding: 10px;
 }
 
-div a {
+.logo{
+        color: cornflowerblue;
+        font-size: 1.5em;
+}
+
+div a{
     color: white;
     text-decoration: none;
-    margin-right: 50px;
+    margin-right: 0.8em;
+    color: white;
+
 }
+
+.carrito{
+    
+    color:cornflowerblue;
+}
+
