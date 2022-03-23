@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from './Header';
-
+import NavBar from './componentes/NavBar';
+import ItemListContainer from './componentes/ItemListContainer';
 
 function App() {
   return (
     <>
-      <Header/>
+      <NavBar/>
+      <ItemListContainer greeting='Bienvenido a tu tienda'/>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import './Header.css';
-import {FaShoppingCart} from 'react-icons/fa'
+import '../NavBar.css';
+import CartWidget from './CartWidget';
 
 
 const Header = () => {
@@ -14,7 +14,7 @@ const Header = () => {
                     <a href="#">Productos</a>
                     
                 </nav>
-                <FaShoppingCart className="carrito" size="2em"/>
+                 <CartWidget/>
                
               
 
