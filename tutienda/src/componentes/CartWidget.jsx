@@ -1,5 +1,17 @@
 import {FaShoppingCart} from 'react-icons/fa';
 
-const CartWidget = () =>  (<FaShoppingCart className="carrito" size="2em"/>)
+
+const carritoStyles = {
+    
+    color:'cornflowerblue',
+    ':hover': {
+        cursor: 'pointer !important'
+      }
+}
+
+
+const CartWidget = () =>  (<FaShoppingCart style={carritoStyles} size="2em"/>)
  
 export default CartWidget;
+
+

@@ -3,7 +3,13 @@ import '../NavBar.css';
 import CartWidget from './CartWidget';
 
 
-const Header = () => {
+
+   
+
+
+
+
+const NavBar = () => {
     return (
             <div className="menu">
                 <h1 className="logo">Tiendapp</h1>
@@ -24,4 +30,4 @@ const Header = () => {
 
 }
 
-export default Header;
+export default NavBar;
