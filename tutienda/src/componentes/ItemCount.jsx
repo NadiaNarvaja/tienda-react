@@ -12,6 +12,14 @@ const ItemCountDivStyles = {
     borderRadius:10
 }
 
+const tituloStock = {
+    color:'#C32A30',
+    marginLeft:'45%',
+    paddingTop:15
+}
+
+
+
 const buttonStyles = {
     margin:10,
     
@@ -58,7 +66,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
    
 
     const sumar = () => {
-        setContador(contador + 1);
+        setContador(
+            contador < stock ? contador +1 : contador
+        );
     }
 
     const restar = () => {
@@ -74,7 +84,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
     return (
         <>
-                <div style={ItemCountDivStyles}>
+                <div >
+                <h5 style={tituloStock} >Stock: {stock}</h5>
+                <div style={ItemCountDivStyles}>    
                 <button style={buttonStyles} onClick={restar}>-</button>
                 <p style={pStyles}>{contador}</p>
                 <button style={buttonStyles} onClick={sumar}>+</button> 
@@ -82,7 +94,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <div style={contenedorBotonAgregar}>
                 <button style={botonAgregar} onClick={() => manageronADD(contador)} >Agregar al carrito</button>
                 </div>
-
+                </div>
                 
         </>
     )
