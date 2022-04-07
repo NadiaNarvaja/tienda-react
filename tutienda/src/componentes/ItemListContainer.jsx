@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import ItemList from './ItemList.jsx';
-
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList.jsx";
 
 const itemListContainerStyles = {
-    
-        textAlign: 'center',
-        color: 'black'
-}
+  textAlign: "center",
+  color: "black",
+};
 
 /*
 const onAdd = (contador) => {
@@ -20,63 +18,83 @@ const onAdd = (contador) => {
 }*/
 
 const productos = [
-{id:1, title: 'remera', descritption:'una descripcion', price: 4500, equipo:'San Lorenzo', pictureURL: 'PICURL'},
-{id:2, title: 'short', descritption:'una descripcion' , price: 2500, equipo:'Boca', pictureURL: 'PICURL' },
-{id:3, title: 'musculosa',descritption:'una descripcion', price: 1500, equipo:'River', pictureURL: 'PICURL'},
-{id:4, title: 'buzo', descritption:'una descripcion', price: 3500, equipo:'Newells', pictureURL: 'PICURL'},
-{id:5, title: 'remera', descritption:'una descripcion', price: 2500, equipo:'Velez', pictureURL: 'PICURL'},
-{id:6, title: 'short', descritption:'una descripcion', price: 1500, equipo:'Velez', pictureURL: 'PICURL'}
-]
+  {
+    id: 1,
+    title: "Remera Nike Air",
+    description: "una descripcion",
+    price: 4500,
+    equipo: "San Lorenzo",
+    pictureURL: "https://picsum.photos/120",
+  },
+  {
+    id: 2,
+    title: "short",
+    description: "una descripcion",
+    price: 2500,
+    equipo: "Boca",
+    pictureURL: "https://picsum.photos/120",
+  },
+  {
+    id: 3,
+    title: "musculosa",
+    description: "una descripcion",
+    price: 1500,
+    equipo: "River",
+    pictureURL: "https://picsum.photos/120",
+  },
+  {
+    id: 4,
+    title: "buzo",
+    description: "una descripcion",
+    price: 3500,
+    equipo: "Newells",
+    pictureURL: "https://picsum.photos/120",
+  },
+  {
+    id: 5,
+    title: "remera",
+    description: "una descripcion",
+    price: 2500,
+    equipo: "Velez",
+    pictureURL: "https://picsum.photos/120",
+  },
+  {
+    id: 6,
+    title: "short",
+    description: "una descripcion",
+    price: 1500,
+    equipo: "Velez",
+    pictureURL: "https://picsum.photos/120",
+  },
+];
 
+const ItemListContainer = ({ greeting }) => {
+  const [flag, setFlag] = useState(false);
 
+  const [data, setData] = useState([]);
 
+  const managerFlag = () => {
+    setFlag(true);
+  };
 
-
-
-
-
-  
-
-const ItemListContainer = ({greeting}) => {
-
-   const [flag, setFlag] = useState(false);
-   
-   console.log("flag fuera " + flag)
-  
-   const managerFlag = () =>
-    {
-        
-         setFlag(true)
-         
-    }  
-    
-    const promesa = new Promise ((res, rej) => {
-            res(productos)
+  useEffect(() => {
+    const promesa = new Promise((res, rej) => {
+      setTimeout(() => {
+        res(productos);
+      }, 2000);
     });
-    
-    useEffect(() => {
-        setTimeout(() => {
-            if (flag){
-                promesa.then(()=> {
-                    <ItemList prodcutos = {productos} />
-                    console.log('ok prod ' + productos )
-                })
-            }
-        },2000 )
-    })
+    promesa.then((data) => {
+      setData(data);
+    });
+  }, []);
 
-    console.log(flag)
+  console.log(flag);
 
-    return (
-            <>
-            <h3 style={itemListContainerStyles}> {greeting}</h3>
-            <button onClick={managerFlag}>Ver detalle</button>
-            
-            
-            </>
-
-    )
-}
-
+  return (
+    <>
+      <ItemList productos={data} />
+    </>
+  );
+};
 
 export default ItemListContainer;
