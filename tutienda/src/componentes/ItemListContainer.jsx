@@ -68,7 +68,7 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch("https://fakestoreapi.com/products")
+      fetch("https://fakestoreapi.com/products?limit=6")
         .then((res) => res.json())
         .then((json) => setData(json));
     }, 2000);

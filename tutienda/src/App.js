@@ -1,11 +1,7 @@
 import React from "react";
 import NavBar from "./componentes/NavBar";
 import ItemListContainer from "./componentes/ItemListContainer";
-
-const flex = {
-  display: "flex",
-  flexWrap: "wrap",
-};
+import ItemDetailsContainer from "./componentes/ItemDetailsContainer";
 
 function App() {
   return (
@@ -13,6 +9,8 @@ function App() {
       <NavBar />
 
       <ItemListContainer greeting="Bienvenido a tu tienda" />
+
+      <ItemDetailsContainer />
     </>
   );
 }
