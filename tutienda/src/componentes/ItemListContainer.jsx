@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList.jsx";
 
-const itemListContainerStyles = {
-  textAlign: "center",
-  color: "black",
-};
-
 /*
 const onAdd = (contador) => {
     console.log(contador)
@@ -16,7 +11,7 @@ const onAdd = (contador) => {
         console.log(`La cantidad de ${contador} ha sido agregada al carrito correctamente`)
     }
 }*/
-
+/*
 const productos = [
   {
     id: 1,
@@ -66,29 +61,18 @@ const productos = [
     equipo: "Velez",
     pictureURL: "https://picsum.photos/120",
   },
-];
+]; */
 
 const ItemListContainer = ({ greeting }) => {
-  const [flag, setFlag] = useState(false);
-
   const [data, setData] = useState([]);
 
-  const managerFlag = () => {
-    setFlag(true);
-  };
-
   useEffect(() => {
-    const promesa = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(productos);
-      }, 2000);
-    });
-    promesa.then((data) => {
-      setData(data);
-    });
+    setTimeout(() => {
+      fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((json) => setData(json));
+    }, 2000);
   }, []);
-
-  console.log(flag);
 
   return (
     <>

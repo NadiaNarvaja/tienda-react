@@ -11,7 +11,7 @@ const ItemList = ({ productos }) => {
   return (
     <div style={flex}>
       {productos.map((producto) => {
-        const { id, title, description, price, equipo, pictureURL } = producto;
+        const { id, title, description, price, equipo, image } = producto;
 
         return (
           <Item
@@ -20,7 +20,7 @@ const ItemList = ({ productos }) => {
             description={description}
             price={price}
             equipo={equipo}
-            url={pictureURL}
+            image={image}
           />
         );
       })}
